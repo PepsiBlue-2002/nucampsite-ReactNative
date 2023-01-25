@@ -1,11 +1,17 @@
 import { StyleSheet, Text, View } from 'react-native';
 import { Card, Icon } from 'react-native-elements';
 import { baseURL } from '../../shared/baseURL';
+import * as Animatable from 'react-native-animatable';
 
 const RenderCampsite = (props) => {
     const { campsite } = props;
     if (campsite) {
         return (
+            <Animatable.View
+                animation='fadeInDownBig'
+                duration={2000}
+                delay={1000}
+            >
             <Card containerStyle={styles.cardContainer}>
                 <Card.Image source={{ uri: baseURL + campsite.image }}>
                     <View style={styles.cardRow}>
@@ -38,6 +44,7 @@ const RenderCampsite = (props) => {
                 />
                 </View>
             </Card>
+            </Animatable.View>
         );
     }
     return <View />;
